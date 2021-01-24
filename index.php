@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-        <meta name="discription" content="Survey For Dev | Simplest survey application">
+    <meta name="discription" content="Survey For Dev | Simplest survey application">
     <link rel="icon" href="./images/icon.ico">
     <link rel="stylesheet" href="style/sliderstyle.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,15 +21,15 @@
         </div>
     </header>
     <section class="form-section">
-        <form action="submit.php">
+        <form method="post" action="submit.php">
             <table class="styled-table">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                        
                         <th>Question</th>
                     </tr>
                 </thead>
-                    <tbody>
+                <tbody>
                     <?php
 
                     include('includes/dbconnect.php');
@@ -41,26 +41,34 @@
                         $language = $row_query['name'];
                         echo "
                         <tr>
-                        <td rowspan='3'>$sl_no</td>
-                        <td>
-                            <h4>$language</h4>
-                        </td>
+                            <td>
+                                <h4>$language</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Your interest in $language</p>
+                                <br>
+                                <input type='range' name='".strtolower($language)."-iscore' min='0' max='10' value='0' class='slider' id='myRange'>
+                            </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Your knowledge in $language</p>
-                                <input type='range' min='0' max='50' value='0' class='slider' id='myRange'>
-                            </td>
-                        </tr>
-                            <td>
-                                <p>Your interest in $language</p>
-                                <input type='range' min='0' max='50' value='0' class='slider' id='myRange'>
+                                <br>
+                                <input type='range' name='".strtolower($language)."-kscore' min='0' max='10' value='0' class='slider' id='myRange'>
                             </td>
                         </tr>
                         ";
                     }
 
                     ?>
+                    
+                    <tr>
+                        <td>
+                            <input type="submit" value="Submit">
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </form>
