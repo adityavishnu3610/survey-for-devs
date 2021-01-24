@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.logo {
+    max-width: 60px;
+    max-height: 60px;
+    min-width: 40px ;
+    min-height: 40px;
+} 
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    width: 90%;
+    height:20vh;
+    margin: auto;
+    align-items: center;
+}
+
+.logo-container,.nav-link { 
+    display: flex;
+
+}
+
+
+.logo-container {
+    flex: 2;
+
+}
+nav{ 
+    flex: 1;
+
+}
+ 
