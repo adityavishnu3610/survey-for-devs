@@ -45,23 +45,19 @@
                     <tr>
                         <td>
                             <p>Your knowledge in $language</p>
-                            <input type='range' min='0' max='10' value='0' name='$language-val' class='slider' id='myRange'>
+                            <input type='range' min='0' max='50' value='0' class='slider' id='myRange'>
                         </td>
                     </tr>
                         <td>
                             <p>Your interest in $language</p>
-                            <input type='range' min='0' max='10' value='0' class='slider' id='myRange'>
+                            <input type='range' min='0' max='50' value='0' class='slider' id='myRange'>
                         </td>
                     </tr>
                     ";
                 }
 
                 ?>
-                <tr>
-                    <td>
-                        <input type="submit" value="Submit" name="submit">
-                    </td>
-                </tr>
+
             </table>
         </form>
     </section>

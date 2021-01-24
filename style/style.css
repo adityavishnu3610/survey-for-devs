@@ -6,15 +6,28 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background: rgb(195, 215, 252);
+    background: rgb(236, 236, 236);
 }
 
 header{
     display: flex;
     padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header.h1{
+    justify-content: flex-end;
 }
 header div{
     margin: 20px;
+}
+
+.logo-img{
+    width: 10vh;
+    height: 10vh;
+    min-width: 80px;
+    min-height: 80px;
 }
 
 .form-section{
@@ -27,7 +40,7 @@ header div{
     width: 80%;
     margin: 10px auto;
 }
-
+/*
 table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -35,4 +48,33 @@ table, th, td{
 
 th, td{
     padding: 5px 10px;
+} 
+*/
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #374fd8;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
 }
