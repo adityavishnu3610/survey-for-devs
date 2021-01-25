@@ -63,7 +63,9 @@ while($row_survey = mysqli_fetch_array($run_survey)){
 $usr_insert_qry = "INSERT INTO survey_entry (email, name) VALUES ('$usr_email','$usr_name')";
 $usr_insert_qry = mysqli_query($conn, $usr_insert_qry);
 
-if($conn->errno === 1062) {
-    echo "DUPLICATE";
+if($usr_insert_qry){
+    header("Location: success.php");
 }
-
+else{
+    header("Location: error.php");
+}
