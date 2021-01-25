@@ -50,7 +50,7 @@ while($row_survey = mysqli_fetch_array($run_survey)){
     $new_iscore = $iscore + $iscore_array[$i];
     $new_count = $count+1;
     $update_qry = "UPDATE languages SET interest = $new_iscore , knowledge = $new_kscore, count = $new_count WHERE name = '$name'";
-    echo $update_qry.'<br>';
+    header("Location: success.php");
     $run_update_qry = mysqli_query($conn, $update_qry);
 
 

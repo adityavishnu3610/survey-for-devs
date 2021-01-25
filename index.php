@@ -21,7 +21,17 @@
         </div>
     </header>
     <section class="form-section">
-        <form method="post" action="submit.php">
+        <form class = "form" method="post" action="submit.php">
+            <div class="card">
+                <div class = "name-section" >
+                    <label for="name" class="name-label">Name</label>
+                    <input type="text" placeholder="Athul Baby" class="name">
+                </div>
+                <div class = "email-section" >
+                    <label for="email" class="email-label">Email</label>
+                    <input type="text" placeholder="athulofficial01@gmail.com" class="email">
+                </div>
+            </div>
             <table class="styled-table">
                 <thead>
                     <tr>

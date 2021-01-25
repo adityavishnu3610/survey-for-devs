@@ -7,6 +7,9 @@
 body{
     font-family: 'Poppins', sans-serif;
     background: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header{
@@ -16,8 +19,9 @@ header{
     align-items: center;
 }
 
-header.h1{
+header h1{
     justify-content: flex-end;
+    color: #2a2a2a;
 }
 header div{
     margin: 20px;
@@ -40,6 +44,58 @@ header div{
     width: 80%;
     margin: 10px auto;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    width: 80%;
+    margin: auto;
+    background: rgb(0, 153, 255);
+    border-radius: 3px;
+    height: 10vh;
+    color: cornsilk;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.card div {
+    display: flex;
+    width: 20vw;
+}
+
+.name-section {
+    padding: 20px;
+}
+
+.email-section {
+    padding: 20px;
+} 
+
+
+.card div input {
+    margin: auto;
+    padding: 10px;
+    border: 0px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.card div label{
+    padding: 10px;
+    margin: auto;
+    font-weight: 400;
+    font-size: 20px;
+}
+
 
 
 .styled-table {
@@ -89,3 +145,16 @@ table input[type=submit]{
     border-radius: 5px;
     
   }
+
+main{
+      display: flex;
+      width: 85%;
+      margin: auto;
+      justify-content: center;
+  }
+
+main h1 {
+    color: #2a2a2a;
+    font-size: 5vh;
+}
+
