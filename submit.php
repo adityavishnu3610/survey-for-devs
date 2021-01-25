@@ -2,6 +2,9 @@
 
 include('includes/dbconnect.php');
 
+$usr_name = $_POST['usr-name'];
+$usr_email = $_POST['usr-email'];
+
 $python_kscore = $_POST['python-kscore'];
 $python_iscore = $_POST['python-iscore'];
 
@@ -50,7 +53,6 @@ while($row_survey = mysqli_fetch_array($run_survey)){
     $new_iscore = $iscore + $iscore_array[$i];
     $new_count = $count+1;
     $update_qry = "UPDATE languages SET interest = $new_iscore , knowledge = $new_kscore, count = $new_count WHERE name = '$name'";
-    header("Location: success.php");
     $run_update_qry = mysqli_query($conn, $update_qry);
 
 
@@ -58,4 +60,10 @@ while($row_survey = mysqli_fetch_array($run_survey)){
     
 }
 
-?>
+$usr_insert_qry = "INSERT INTO survey_entry (email, name) VALUES ('$usr_email','$usr_name')";
+$usr_insert_qry = mysqli_query($conn, $usr_insert_qry);
+
+if($conn->errno === 1062) {
+    echo "DUPLICATE";
+}
+

@@ -25,11 +25,11 @@
             <div class="card">
                 <div class = "name-section" >
                     <label for="name" class="name-label">Name</label>
-                    <input type="text" placeholder="Athul Baby" class="name">
+                    <input name="usr-name" type="text" placeholder="Athul Baby" class="name">
                 </div>
                 <div class = "email-section" >
                     <label for="email" class="email-label">Email</label>
-                    <input type="text" placeholder="athulofficial01@gmail.com" class="email">
+                    <input name="usr-email" type="email" placeholder="athulofficial01@gmail.com" class="email">
                 </div>
             </div>
             <table class="styled-table">
