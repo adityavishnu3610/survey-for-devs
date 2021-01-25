@@ -35,7 +35,6 @@
             <table class="styled-table">
                 <thead>
                     <tr>
-                        
                         <th>Question</th>
                     </tr>
                 </thead>
