@@ -30,16 +30,16 @@ body{
 header{
     display: flex;
     padding: 20px;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     width: 75%;
     margin: auto;
     
 }
 
 header h1{
-    font-size: 7vw;
+    font-size: 6vw;
     color: #535353;
+    align-self: center;
 }
 
 header div{
@@ -47,10 +47,11 @@ header div{
 }
 
 .logo-img{
-    width: 10vh;
-    height: 10vh;
+    width: 30vh;
+    height: 30vh;
     min-width: 80px;
     min-height: 80px;
+    align-self: center;
 }
 
 .form-section{
