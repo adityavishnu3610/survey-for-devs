@@ -40,16 +40,7 @@ header div{
     width: 80%;
     margin: 10px auto;
 }
-/*
-table, th, td{
-    border: 1px solid black;
-    border-collapse: collapse;
-}
 
-th, td{
-    padding: 5px 10px;
-} 
-*/
 
 .styled-table {
     border-collapse: collapse;
@@ -61,7 +52,7 @@ th, td{
 }
 
 .styled-table thead tr {
-    background-color: #374fd8;
+    background-color: #508CA4;
     color: #ffffff;
     text-align: left;
 }
@@ -70,20 +61,31 @@ th, td{
 .styled-table td {
     margin: auto;
     padding: 12px 15px;
+}#455ad4#455ad4c4
+
+
+
+.styled-table tbody{
+    background: #ffffff;
 }
 
-.styled-table tbody tr {
-    border-bottom:thin solid #dddddd;
+.styled-table tbody tr:nth-child(3n-2) {
+    background-color: #38AECC;
+    color: white;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
- 
-.styled-table tbody tr td p{
-    padding: 10px 10px 10px 10px;
+tr:nth-last-child(1){
+    text-align: right;
 }
 
-.styled-table tbody tr td input{
-    padding: 10px 10px 10px 10px;
-}
+table input[type=submit]{
+    background-color: #183446;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    
+  }
