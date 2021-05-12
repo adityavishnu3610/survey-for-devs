@@ -11,31 +11,34 @@ if (!empty($_POST['fetchChartData'])){
     $run_chart_qry1 = mysqli_query($conn, $chart_qry1);
     $run_chart_qry2 = mysqli_query($conn, $chart_qry2);
 
-    $intrest = "[";
+    $intrest = ' ';  
     while($row = mysqli_fetch_array($run_chart_qry1))
     {
-       $intrest .= $row [0].', ';
+       $intrest.= $row[0].',';
     }
-    $intrest .= "]";
+  
 
 
-    $knowledge = "[";
+    $knowledge = ' ';  
     while($row = mysqli_fetch_array($run_chart_qry2))
     {
-        $knowledge .= $row [0].', ';
+        $knowledge.= $row[0].',';
     }
-    $knowledge .= "]";
-    
+  
     
 
-    echo '
-	
-    function replace() {
-        var intrest = "'.$intrest.'";
-        var knowledge = "'.$knowledge.'";
-        
-    }
-';
+    
+if($_POST['fetchChartData']=="1")
+{
+    echo $intrest;
+}
+if($_POST['fetchChartData']=="2")
+{
+    echo $knowledge;
+}
+
+
+
 }
 else{
     echo 'invalid request';

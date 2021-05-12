@@ -10,7 +10,6 @@
     <link rel="icon" href="./images/icon.ico">
     <link rel="stylesheet" href="style/sliderstyle.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script language="JavaScript" type="text/javascript" src="includes\js\jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@090;200;400;500;600&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -18,36 +17,29 @@
     <script src="utils.js"></script>
     <script type="text/javascript" id="display"></script>
     <script type='text/javascript'>
-    
-
-        function fetch_new() {
-            $.ajax({
-
-                type: 'POST',
-                url: 'ajax.php',
-                data: { fetchChartData: 1 },
-                success: function (html) {
-                    document.getElementById('display').innerHTML = html;
-                    replace();
-                    console.log('success');
-                    renderHtml();
 
 
-                },
+        // function fetch_new() {
+        //     $.ajax({
+
+        //         type: 'POST',
+        //         url: 'ajax.php',
+        //         data: { fetchChartData: 1 },
+        //         success: function (html) {
+        //             document.getElementById('display').innerHTML = html;
+        //          alert(html)
 
 
-                error: function (html) {
-                    alert('ERROR');
-                }
+        //         }
+        //     });
+        // }
 
-            });
-        }
     </script>
 
     <title>Developer.WTF | Survey</title>
 </head>
 
-<body>
+<body onload="btnclick()">
     <header>
         <div>
             <img class="logo-img" src="images/logo.png" alt="developers.wtf-logo" height="50px">
@@ -62,19 +54,48 @@
             <canvas id="canvas"></canvas>
         </div>
         <button id="FetchButton" class="FetchButton">FetchButton</button>
-        <script src="main.js"></script>
+        <script src="main.js">
+        </script>
 
 
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 <script>
-
+    let intrest, knowledge;
     let btnClick = document.getElementById("FetchButton")
     btnClick.addEventListener('click', () => {
         console.log('button');
         fetch_new();
     });
+    function fetch_new() {
+        $.ajax({
+            type: 'POST',
+            url: 'ajax.php',
+            data: { fetchChartData: 1 },
+            success: function (returnInterest) {
+                console.log(intrest)
+                intrest = returnInterest.split(',')
+            }
+        }).done($.ajax({
+            type: 'POST',
+            url: 'ajax.php',
+            data: { fetchChartData: 2 },
+            success: function (returnKnowledge) {
+                console.log(knowledge)
+                knowledge = returnKnowledge.split(',');
+                renderHtml();
+            }
+        })
+        )
 
+
+    }
+
+    function btnclick() {
+        console.log('btnclick');
+    }
 
     function renderHtml() {
         var barChartData = {

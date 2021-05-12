@@ -4,31 +4,31 @@ var barChartData = {
         label: 'INTREST',
         backgroundColor: window.chartColors.red,
         data: [
-            36,
-            55,
-            55,
-            36,
-            55,
-            55,
-            36,
-            37,
-            55,
-            66
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
         ]
     }, {
         label: 'KNOWLEDGE',
         backgroundColor: window.chartColors.blue,
         data: [
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
         ]
     }]
 
