@@ -39,7 +39,7 @@
     <title>Developer.WTF | Survey</title>
 </head>
 
-<body onload="btnclick()">
+<body">
     <header>
         <div>
             <img class="logo-img" src="images/logo.png" alt="developers.wtf-logo" height="50px">
@@ -59,85 +59,87 @@
 
 
     </main>
-</body>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-<script>
-    let intrest, knowledge;
-    let btnClick = document.getElementById("FetchButton")
-    btnClick.addEventListener('click', () => {
-        console.log('button');
-        fetch_new();
-    });
-    function fetch_new() {
-        $.ajax({
-            type: 'POST',
-            url: 'ajax.php',
-            data: { fetchChartData: 1 },
-            success: function (returnInterest) {
-                console.log(intrest)
-                intrest = returnInterest.split(',')
-            }
-        }).done($.ajax({
-            type: 'POST',
-            url: 'ajax.php',
-            data: { fetchChartData: 2 },
-            success: function (returnKnowledge) {
-                console.log(knowledge)
-                knowledge = returnKnowledge.split(',');
-                renderHtml();
-            }
-        })
-        )
-
-
-    }
-
-    function btnclick() {
-        console.log('btnclick');
-    }
-
-    function renderHtml() {
-        var barChartData = {
-            labels: ['Python', 'JavaScript', 'C/C++', 'Java', 'PHP', 'C#', 'Kotlin', 'Swift', 'Pearl', 'HTML/CSS'],
-            datasets: [{
-                label: 'INTREST',
-                backgroundColor: window.chartColors.red,
-                data: intrest,
-            }, {
-                label: 'KNOWLEDGE',
-                backgroundColor: window.chartColors.blue,
-                data: knowledge,
-            }]
-
-        };
-
-        var ctx = document.getElementById('canvas').getContext('2d');
-        window.myBar = new Chart(ctx, {
-            type: 'bar',
-            data: barChartData,
-            options: {
-                title: {
-                    display: true,
-                    text: 'Intrest Knoledge | Bar Chart'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false
-                },
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                        stacked: true,
-                    }],
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        let intrest, knowledge;
+        let btnClick = document.getElementById("FetchButton")
+        btnClick.addEventListener('click', () => {
+            console.log('button');
+            fetch_new();
         });
-    };
-</script>
+
+
+        setInterval(function () { btnclick(); }, 10000);
+
+        function fetch_new() {
+            $.ajax({
+                type: 'POST',
+                url: 'ajax.php',
+                data: { fetchChartData: 1 },
+                success: function (returnInterest) {
+                    console.log(intrest)
+                    intrest = returnInterest.split(',')
+                }
+            }).done($.ajax({
+                type: 'POST',
+                url: 'ajax.php',
+                data: { fetchChartData: 2 },
+                success: function (returnKnowledge) {
+                    console.log(knowledge)
+                    knowledge = returnKnowledge.split(',');
+                    renderHtml();
+                }
+            })
+            )
+
+
+        }
+
+        function btnclick() { document.getElementById('FetchButton').click(); }
+
+        function renderHtml() {
+            var barChartData = {
+                labels: ['Python', 'JavaScript', 'C/C++', 'Java', 'PHP', 'C#', 'Kotlin', 'Swift', 'Pearl', 'HTML/CSS'],
+                datasets: [{
+                    label: 'INTREST',
+                    backgroundColor: window.chartColors.red,
+                    data: intrest,
+                }, {
+                    label: 'KNOWLEDGE',
+                    backgroundColor: window.chartColors.blue,
+                    data: knowledge,
+                }]
+
+            };
+
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Intrest Knoledge | Bar Chart'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    responsive: true,
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+        };
+    </script>
 
 
 
